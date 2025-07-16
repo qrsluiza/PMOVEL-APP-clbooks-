@@ -1,19 +1,32 @@
 import React, { useState } from 'react';
 import { Text, View, Image, StyleSheet, TouchableOpacity } from 'react-native';
-import { FontAwesome5, Feather, MaterialCommunityIcons, Entypo } from '@expo/vector-icons';
+import { FontAwesome5, Feather, MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
 
 const App = () => {
-  const [login, setLogin] = useState();
-  const [senha, setSenha] = useState();
+  
+  const handleVoltar = () => {
+    console.log('Voltar pressionado'); 
+  };
 
   return (
     <View style={styles.container}>
-      <View style={styles.content}>
-        <Image source={require('./assets/clbooks.png')} style={styles.imagem} />
-        <Text style={styles.label}>Tela inicial leitor</Text>
-        <Text style={styles.label2}>ASSINE AQUI!</Text>
+
+      <View style={styles.header}>
+        <TouchableOpacity onPress={handleVoltar} style={styles.backButton}>
+          <Ionicons name="arrow-back" size={24} color="#62B5E6" />
+        </TouchableOpacity>
+    
       </View>
 
+  <View style={styles.logoPai}>
+  <Image source={require('./assets/forum.png')} style={styles.logo} />
+  </View>
+
+      <View style={styles.content}>
+        <Text style={styles.label}>Tela forum leitor</Text>
+      </View>
+
+    
       <View style={styles.footer}>
         <TouchableOpacity>
           <View style={styles.iconWrapper}>
@@ -48,18 +61,33 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#12111F',
     paddingTop: 40,
-    paddingBottom: 70, 
+    paddingBottom: 70,
   },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 10,
+    marginBottom: 10,
+  },
+  backButton: {
+    marginRight: 10,
+  },
+  logo: {
+    width: 200,
+    height: 60,
+    resizeMode: 'contain',
+  },
+
+logoPai: {
+  flexDirection: 'row',
+  justifyContent:'center',
+  alignItems:'center',
+    resizeMode: 'contain',
+  },
+
   content: {
     flex: 1,
     justifyContent: 'center',
-  },
-  imagem: {
-    width: 350,
-    height: 150,
-    alignSelf: 'center',
-    marginBottom: 20,
-    resizeMode: 'contain',
   },
   label: {
     color: '#E8E8E8',
@@ -73,7 +101,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
   },
-
   footer: {
     position: 'absolute',
     bottom: 0,
