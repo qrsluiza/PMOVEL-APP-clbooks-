@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import {View,Text,StyleSheet,TextInput, TouchableOpacity, Image} from 'react-native';
-import { Feather, Entypo, MaterialIcons } from '@expo/vector-icons';
+import {View,Text,StyleSheet, TouchableOpacity, Image} from 'react-native';
 import Logo from '../assets/clbooks.png';
 import lektole from '../assets/lektole.png';
 import david from '../assets/padrinho.png';
+import { useRouter} from 'expo-router';
 
 export default function TelaPostagem  ()  {
-  const [postagem, setPostagem] = useState('');
+  const [postagem] = useState('');
 
   const handleCancelar = () => {
     console.log('Cancelado');
@@ -15,6 +15,12 @@ export default function TelaPostagem  ()  {
   const handlePostar = () => {
     console.log('Postando:', postagem);
   };
+
+  const handleVoltar = () => {
+    console.log('Voltar pressionado'); 
+  };
+  
+const router = useRouter()
 
   return (
     <View style={styles.container}>
@@ -29,7 +35,7 @@ export default function TelaPostagem  ()  {
     
      <View style={styles.comentarioUser}>
       <Image source={lektole} style={styles.img} />
-       <Text style={styles.footerText}>'@lektole curtiu o seu post no fórum.'</Text>
+       <Text style={styles.footerText}>@lektole curtiu o seu post no fórum.</Text>
 
       </View>
 
@@ -42,16 +48,24 @@ export default function TelaPostagem  ()  {
     
      <View style={styles.comentarioUser}>
       <Image source={david} style={styles.img} />
-       <Text style={styles.footerText}>'@davidhlima adicionou o seu post aos favoritados.'</Text>
+       <Text style={styles.footerText}>@davidhlima adicionou o seu post aos favoritados.</Text>
 
       </View>
 
       </View>
 
       <View style={styles.footer}>
-        <Text style={styles.footerText2}>SEM NOTIFICAÇÕES ANTERIORES</Text>
+        <Text style={styles.footerText2}>*SEM NOTIFICAÇÕES ANTERIORES</Text>
       </View>
+
+       <View style={styles.voltarContainer}>
+               <View style={styles.linha} />
+                <Text style={styles.footerText2}>VOLTAR</Text>
+                <View style={styles.linha} />
+        </View>
     </View>
+
+    
   );
 };
 
@@ -88,7 +102,6 @@ gap: 20
     resizeMode: 'contain',
   },
 
-  
   caixaTexto: {
     backgroundColor: '#D9D9D9',
     borderRadius: 16,
@@ -104,12 +117,35 @@ gap: 20
     alignItems: 'center',
   },
   footerText: {
+    width:180,
     color: '#616162',
     fontSize: 12,
   },
+    voltarContainer: {
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'center',
+  marginTop: 15,
+},
+
+linha: {
+  flex: 1,
+  height: 1,
+  backgroundColor: '#FFFF',
+  marginHorizontal: 10,
+},
+
 
    footerText2: {
     color: '#62B5E6',
     fontSize: 12,
   },
+
+ header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 10,
+    marginBottom: 10,
+  },
+
 });

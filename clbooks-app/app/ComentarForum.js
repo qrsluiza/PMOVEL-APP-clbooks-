@@ -1,14 +1,8 @@
 import React, { useState } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  TextInput,
-  TouchableOpacity,
-  Image,
-} from 'react-native';
+import {View,Text, StyleSheet, TextInput, TouchableOpacity, Image,} from 'react-native';
 import { Feather, Entypo, MaterialIcons } from '@expo/vector-icons';
 import Logo from '../assets/clbooks.png';
+import {useRouter} from 'expo-router'
 
 export default function TelaPostagem () {
   const [postagem, setPostagem] = useState('');
@@ -21,14 +15,16 @@ export default function TelaPostagem () {
     console.log('Postando:', postagem);
   };
 
+const router = useRouter()
+
   return (
     <View style={styles.container}>
-      {/* LOGO */}
+ 
       <View style={styles.logo}>
         <Image source={Logo} style={styles.imagem} />
       </View>
 
-      {/* TOPO */}
+    
       <View style={styles.topBar}>
         <TouchableOpacity onPress={handleCancelar}>
           <Text style={styles.cancelar}>Cancelar</Text>
@@ -38,7 +34,7 @@ export default function TelaPostagem () {
         </TouchableOpacity>
       </View>
 
-      {/* CAMPO DE TEXTO */}
+     
       <View style={styles.caixaTexto}>
         <TextInput
           style={styles.input}
@@ -49,7 +45,6 @@ export default function TelaPostagem () {
           onChangeText={setPostagem}
         />
 
-        {/* ÍCONES */}
         <View style={styles.icones}>
           <Feather name="image" size={20} color="#62B5E6" />
           <Entypo name="location-pin" size={20} color="#62B5E6" />
@@ -57,7 +52,7 @@ export default function TelaPostagem () {
         </View>
       </View>
 
-      {/* RODAPÉ */}
+  
       <View style={styles.footer}>
         <Text style={styles.footerText}>clbooks | política de privacidade</Text>
       </View>

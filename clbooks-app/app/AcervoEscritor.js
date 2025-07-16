@@ -64,7 +64,7 @@ const router = useRouter()
                     <FontAwesome5 name="users" size={24} color="white" />
                 </TouchableOpacity>
 
-                <TouchableOpacity>
+                <TouchableOpacity style={styles.botao} onPress={() => {router.push('/NotificaLeitor')}}>
                     <Feather name="bell" size={24} color="white" />
                 </TouchableOpacity>
 

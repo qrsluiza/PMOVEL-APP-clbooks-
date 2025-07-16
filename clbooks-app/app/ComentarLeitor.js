@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { Text, View, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { FontAwesome5, Feather, MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
+import {useRouter} from 'expo-router'
 
  export default function App  () {
   
   const handleVoltar = () => {
     console.log('Voltar pressionado'); 
   };
+
+const router = useRouter()
 
   return (
     <View style={styles.container}>

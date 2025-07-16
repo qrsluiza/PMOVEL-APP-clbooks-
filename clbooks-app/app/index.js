@@ -37,7 +37,7 @@ const router = useRouter()
         <Text style={[styles.label2, { marginTop: 10 }]}>Esqueci a senha</Text>
         </TouchableOpacity>
         <View style={{ marginTop: 20 }}>
-          <TouchableOpacity style={styles.botao} onPress={() => {router.push('/')}}>
+          <TouchableOpacity style={styles.botao} onPress={() => {router.push('/InicialLeitor')}}>
             <Text style={styles.botaoTexto}>ENTRAR</Text>
           </TouchableOpacity>
 
