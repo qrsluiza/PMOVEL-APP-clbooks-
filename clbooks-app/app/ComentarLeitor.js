@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Text, View, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { FontAwesome5, Feather, MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
 
-const App = () => {
+ export default function App  () {
   
   const handleVoltar = () => {
     console.log('Voltar pressionado'); 
@@ -19,7 +19,7 @@ const App = () => {
       </View>
 
   <View style={styles.logoPai}>
-  <Image source={require('./assets/clbooks.png')} style={styles.logo} />
+  <Image source={require('../assets/clbooks.png')} style={styles.logo} />
   </View>
 
       <View style={styles.content}>
@@ -34,15 +34,15 @@ const App = () => {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity>
+        <TouchableOpacity style={styles.botao} onPress={() => {router.push('/AcervoEscritor')}}>
           <Feather name="book" size={24} color="white" />
         </TouchableOpacity>
 
-        <TouchableOpacity>
+        <TouchableOpacity style={styles.botao} onPress={() => {router.push('/ForumLeitor')}}>
           <FontAwesome5 name="users" size={24} color="white" />
         </TouchableOpacity>
 
-        <TouchableOpacity>
+        <TouchableOpacity  style={styles.botao} onPress={() => {router.push('/NotificaLeitor')}}>
           <Feather name="bell" size={24} color="white" />
         </TouchableOpacity>
 
@@ -54,7 +54,7 @@ const App = () => {
   );
 };
 
-export default App;
+
 
 const styles = StyleSheet.create({
   container: {

@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { Text, View, Image, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
+import {useRouter} from 'expo-router'
 
-const App = () => {
+export default function App () {
   const [login, setLogin] = useState();
+
+const router = useRouter()
 
   return (
     <View style={styles.container}>
@@ -21,9 +24,18 @@ const App = () => {
           defaultValue={login}
         />
 
+         <TextInput
+          style={styles.input}
+          placeholder="Inserir senha"
+          placeholderTextColor="#2B2A2A"
+          onChangeText={(texto) => setLogin(texto)}
+          defaultValue={login}
+        />
+
+
 
         <View style={{ marginTop: 20 }}>
-          <TouchableOpacity style={styles.botao} onPress={() => { }}>
+          <TouchableOpacity style={styles.botao} onPress={() => router.push('/EsqueciSenha')}>
             <Text style={styles.botaoTexto}>Confirmar</Text>
           </TouchableOpacity>
 
@@ -45,7 +57,7 @@ const App = () => {
   );
 };
 
-export default App;
+
 
 const styles = StyleSheet.create({
   container: {
@@ -92,6 +104,7 @@ label:{
     height: 40,
     borderRadius: 5,
     paddingHorizontal: 5,
+       
   },
 
   footer: {

@@ -1,11 +1,15 @@
 import React from 'react';
 import { Text, View, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import {useRouter} from 'expo-router'
 
-const EscolhaCadastro = () => {
+ export default function EscolhaCadastro  () {
+
+  const router = useRouter()
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Image source={require('./assets/clbooks.png')} style={styles.logo} />
+        <Image source={require('../assets/clbooks.png')} style={styles.logo} />
         <View style={styles.separator} />
       </View>
 
@@ -13,11 +17,11 @@ const EscolhaCadastro = () => {
       <View style={styles.content}>
         <Text style={styles.label}>Que tipo de usuário você é?</Text>
 
-        <TouchableOpacity style={styles.botao} onPress={() => {}}>
+        <TouchableOpacity style={styles.botao} onPress={() => {router.push('/CadastroLeitor')}}>
           <Text style={styles.botaoTexto}>CADASTRO ESCRITOR</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={[styles.botao, { marginTop: 15 }]} onPress={() => {}}>
+        <TouchableOpacity style={[styles.botao, { marginTop: 15 }]} onPress={() => {router.push('/CadastroLeitor')}}>
           <Text style={styles.botaoTexto}>CADASTRO LEITOR</Text>
         </TouchableOpacity>
       </View>
@@ -30,7 +34,7 @@ const EscolhaCadastro = () => {
   );
 };
 
-export default EscolhaCadastro;
+
 
 const styles = StyleSheet.create({
   container: {

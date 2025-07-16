@@ -1,18 +1,11 @@
 import React, { useState } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  TextInput,
-  TouchableOpacity,
-  Image,
-} from 'react-native';
+import {View,Text,StyleSheet,TextInput, TouchableOpacity, Image} from 'react-native';
 import { Feather, Entypo, MaterialIcons } from '@expo/vector-icons';
-import Logo from './assets/clbooks.png';
-import lektole from './assets/lektole';
-import david from './assets/padrinho.png';
+import Logo from '../assets/clbooks.png';
+import lektole from '../assets/lektole.png';
+import david from '../assets/padrinho.png';
 
-const TelaPostagem = () => {
+export default function TelaPostagem  ()  {
   const [postagem, setPostagem] = useState('');
 
   const handleCancelar = () => {
@@ -62,7 +55,7 @@ const TelaPostagem = () => {
   );
 };
 
-export default TelaPostagem;
+
 
 const styles = StyleSheet.create({
   container: {

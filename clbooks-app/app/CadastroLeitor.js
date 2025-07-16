@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { Text, View, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { FontAwesome5, Feather, MaterialCommunityIcons, Entypo } from '@expo/vector-icons';
+import {useRouter} from 'expo-router'
 
-const App = () => {
+export default function App ()  {
   const [login, setLogin] = useState();
   const [senha, setSenha] = useState();
+
+const router = useRouter()
 
   return (
     <View style={styles.container}>
       <View style={styles.content}>
-        <Image source={require('./assets/clbooks.png')} style={styles.imagem} />
+        <Image source={require('../assets/clbooks.png')} style={styles.imagem} />
         <Text style={styles.label}>Tela inicial leitor</Text>
         <Text style={styles.label2}>ASSINE AQUI!</Text>
       </View>
@@ -21,11 +24,11 @@ const App = () => {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity>
+        <TouchableOpacity style={styles.botao} onPress={() => {router.push('/AcervoEscritor')}}>
           <Feather name="book" size={24} color="white" />
         </TouchableOpacity>
 
-        <TouchableOpacity>
+        <TouchableOpacity style={styles.botao} onPress={() => {router.push('/ForumLeitor')}}>
           <FontAwesome5 name="users" size={24} color="white" />
         </TouchableOpacity>
 
@@ -41,7 +44,7 @@ const App = () => {
   );
 };
 
-export default App;
+
 
 const styles = StyleSheet.create({
   container: {

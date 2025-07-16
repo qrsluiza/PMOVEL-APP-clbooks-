@@ -8,9 +8,9 @@ import {
   Image,
 } from 'react-native';
 import { Feather, Entypo, MaterialIcons } from '@expo/vector-icons';
-import Logo from './assets/clbooks.png';
+import Logo from '../assets/clbooks.png';
 
-const TelaPostagem = () => {
+export default function TelaPostagem () {
   const [postagem, setPostagem] = useState('');
 
   const handleCancelar = () => {
@@ -65,7 +65,7 @@ const TelaPostagem = () => {
   );
 };
 
-export default TelaPostagem;
+
 
 const styles = StyleSheet.create({
   container: {

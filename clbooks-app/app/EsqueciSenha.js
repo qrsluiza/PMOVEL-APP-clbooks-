@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { Text, View, Image, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
+import {useRouter} from 'expo-router'
 
-const App = () => {
+export default function App  ()  {
   const [login, setLogin] = useState();
   const [senha, setSenha] = useState();
+
+  const router = useRouter()
 
   return (
     <View style={styles.container}>
 
       <View style={styles.content}>
-       <Image source={require('./assets/clbooks.png')} style={styles.imagem} />
+       <Image source={require('../assets/clbooks.png')} style={styles.imagem} />
 
 
         <Text style={styles.label}>Link confirmado pelo usuario</Text>
@@ -33,12 +36,20 @@ const App = () => {
 
 
         <View style={{ marginTop: 20 }}>
-          <TouchableOpacity style={styles.botao} onPress={() => { }}>
+          <TouchableOpacity style={styles.botao} onPress={() => {router.push('/') }}>
             <Text style={styles.botaoTexto}>Confirmar</Text>
           </TouchableOpacity>
         </View>
+
+
+            <View>
+            <TouchableOpacity onPress={() => router.push('/')}>
+          <Text style={styles.label2}>VOLTAR</Text>
+           </TouchableOpacity>
+        </View>
       </View>
 
+      
 
       <View style={styles.footer}>
 
@@ -48,7 +59,7 @@ const App = () => {
   );
 };
 
-export default App;
+
 
 const styles = StyleSheet.create({
   container: {
@@ -92,7 +103,7 @@ label:{
   },
 
   input: {
-    borderWidth: 1,
+   borderWidth: 1,
     backgroundColor: '#D9D9D9',
     height: 40,
     borderRadius: 5,
@@ -108,4 +119,11 @@ label:{
     fontWeight: 'bold',
   },
 
+  label2:{
+   color: '#6EB1DF',
+  fontSize: 14,
+  fontWeight: 'bold',
+  textAlign: 'center', 
+  padding: 10
+},
 });

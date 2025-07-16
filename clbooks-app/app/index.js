@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { Text, View, Image, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
+import {useRouter} from 'expo-router'
 
-const App = () => {
+export default function App  ()  {
   const [login, setLogin] = useState();
   const [senha, setSenha] = useState();
+
+const router = useRouter()
 
   return (
     <View style={styles.container}>
@@ -30,16 +33,18 @@ const App = () => {
           onChangeText={(texto) => setSenha(texto)}
           defaultValue={senha}
         />
-
+        <TouchableOpacity onPress={() => router.push('/senha')}>
         <Text style={[styles.label2, { marginTop: 10 }]}>Esqueci a senha</Text>
-
-
+        </TouchableOpacity>
         <View style={{ marginTop: 20 }}>
-          <TouchableOpacity style={styles.botao} onPress={() => { }}>
+          <TouchableOpacity style={styles.botao} onPress={() => {router.push('/')}}>
             <Text style={styles.botaoTexto}>ENTRAR</Text>
           </TouchableOpacity>
 
+            <TouchableOpacity  onPress={() => router.push('/EscolhaCadastro')}>
           <Text style={styles.footerText2}>Criar uma conta</Text>
+           </TouchableOpacity>
+          
         </View>
       </View>
 
@@ -52,7 +57,7 @@ const App = () => {
   );
 };
 
-export default App;
+
 
 const styles = StyleSheet.create({
   container: {
@@ -60,6 +65,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#12111F',
     padding: 40,
     justifyContent: 'space-between',
+    
   },
   content: {
     flex: 1,
@@ -86,7 +92,10 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 16,
   },
-
+  label: {
+    color: '#E8E8E8',
+    marginTop: 10,
+  },
   label2: {
     color: '#E8E8E8',
     marginTop: 10,
@@ -110,7 +119,7 @@ const styles = StyleSheet.create({
   footerText2: {
     color: '#E8E8E8',
     fontSize: 14,
-    marginLeft: 110,
+    marginLeft: 90,
     fontWeight: 'bold',
   },
 });
