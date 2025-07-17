@@ -41,7 +41,9 @@ const router = useRouter()
 
          <View style={styles.voltarContainer}>
          <View style={styles.linha} />
+         <TouchableOpacity style={styles.footerText2} onPress={() => router.push('/')}>
           <Text style={styles.footerText2}>VOLTAR</Text>
+          </TouchableOpacity>
           <View style={styles.linha} />
         </View>
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {View,Text,StyleSheet, TouchableOpacity, Image} from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import Logo from '../assets/clbooks.png';
 import lektole from '../assets/lektole.png';
 import david from '../assets/padrinho.png';
@@ -7,23 +8,19 @@ import { useRouter} from 'expo-router';
 
 export default function TelaPostagem  ()  {
   const [postagem] = useState('');
-
-  const handleCancelar = () => {
-    console.log('Cancelado');
-  };
-
-  const handlePostar = () => {
-    console.log('Postando:', postagem);
-  };
-
-  const handleVoltar = () => {
-    console.log('Voltar pressionado'); 
-  };
   
 const router = useRouter()
 
   return (
+
     <View style={styles.container}>
+
+        <View style={styles.header}>
+        <TouchableOpacity style={styles.backButton} onPress={() => {router.push('/InicialLeitor')}} >
+          <Ionicons name="arrow-back" size={24} color="#62B5E6" />
+        </TouchableOpacity>
+    
+      </View>
 
       <View style={styles.logo}>
         <Image source={Logo} style={styles.imagem} />
@@ -58,11 +55,7 @@ const router = useRouter()
         <Text style={styles.footerText2}>*SEM NOTIFICAÇÕES ANTERIORES</Text>
       </View>
 
-       <View style={styles.voltarContainer}>
-               <View style={styles.linha} />
-                <Text style={styles.footerText2}>VOLTAR</Text>
-                <View style={styles.linha} />
-        </View>
+    
     </View>
 
     
@@ -90,6 +83,10 @@ gap: 20
     width:50,
     height: 60,
     resizeMode: 'contain',
+  },
+
+   backButton: {
+    marginRight: 10,
   },
 
   logo: {
@@ -146,6 +143,35 @@ linha: {
     alignItems: 'center',
     paddingHorizontal: 10,
     marginBottom: 10,
+  },
+
+ footer: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    height: 70,
+    backgroundColor: '#0B0B16',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    paddingHorizontal: 20,
+  },
+
+  iconWrapper: {
+    borderWidth: 2,
+    borderColor: '#62B5E6',
+    borderRadius: 50,
+    width: 34,
+    height: 34,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  cIcon: {
+    color: '#62B5E6',
+    fontWeight: 'bold',
+    fontSize: 20,
   },
 
 });

@@ -48,13 +48,14 @@ const router = useRouter()
                 </View>
             </ScrollView>
 
-
-            <View style={styles.footer}>
-                <TouchableOpacity>
-                    <View style={styles.iconWrapper}>
-                        <Text style={styles.cIcon}>C</Text>
-                    </View>
-                </TouchableOpacity>
+        <View style={styles.footer}>
+            <TouchableOpacity>
+        <View style={styles.iconWrapper}>
+            <TouchableOpacity style={styles.cIcon} onPress={() => {router.push('/InicialLeitor')}}>
+            <Text style={styles.cIcon}>C</Text>
+            </TouchableOpacity>
+        </View>
+        </TouchableOpacity>
 
                 <TouchableOpacity>
                     <Feather name="shopping-cart" size={24} color="white" />

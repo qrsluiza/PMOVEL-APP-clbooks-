@@ -4,18 +4,14 @@ import { FontAwesome5, Feather, MaterialCommunityIcons, Ionicons } from '@expo/v
 import {useRouter} from 'expo-router'
 
 export default  function App  ()  {
-  
-  const handleVoltar = () => {
-    console.log('Voltar pressionado'); 
-  };
-  
+
   const router = useRouter()
 
   return (
     <View style={styles.container}>
 
       <View style={styles.header}>
-        <TouchableOpacity onPress={handleVoltar} style={styles.backButton}>
+        <TouchableOpacity style={styles.backButton} onPress={() => {router.push('/InicialLeitor')}} >
           <Ionicons name="arrow-back" size={24} color="#62B5E6" />
         </TouchableOpacity>
     
@@ -33,7 +29,9 @@ export default  function App  ()  {
       <View style={styles.footer}>
         <TouchableOpacity>
           <View style={styles.iconWrapper}>
+            <TouchableOpacity style={styles.cIcon} onPress={() => {router.push('/InicialLeitor')}}>
             <Text style={styles.cIcon}>C</Text>
+            </TouchableOpacity>
           </View>
         </TouchableOpacity>
 
