@@ -20,33 +20,15 @@ export default function TelaAcervo() {
                 </View>
 
 
-                <View style={styles.filtros}>
-                    <TouchableOpacity style={styles.filtroBtn}>
-                        <Feather name="menu" size={18} color="#62B5E6" />
-                        <Text style={styles.filtroTexto}>FILTRAR:</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.filtroQuadrado}>
-                        <Text style={styles.filtroTexto}>GÊNERO</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.filtroQuadrado}>
-                        <Text style={styles.filtroTexto}>PREÇO</Text>
-                    </TouchableOpacity>
-                </View>
-
-
                 <View style={styles.cardLivro}>
-                    <TouchableOpacity  style={styles.imgLivro} onPress={() => { router.push('/LivroAcervo') }} >
                     <Image source={Livro} style={styles.imgLivro} />
-                      </TouchableOpacity>
                     <View style={styles.infoLivro}>
                         <Text style={styles.tituloLivro}>A Seleção</Text>
-                        <Text style={styles.desc}>Autora: Kiera Cass</Text>
-                        <Text style={styles.desc}>Gênero: Romance</Text>
-                        <Text style={styles.preco}>Preço: R$ 40.50</Text>
+                        <View>
+                            <Text style={styles.desc}>Para trinta e cinco garotas, a Seleção é a chance de uma vida. É a oportunidade de ser alçada a um mundo de vestidos deslumbrantes e joias valiosas. De morar em um palácio, conquistar o coração do belo príncipe Maxon e um dia ser a rainha. America Singer, no entanto, estar entre as Selecionadas é um pesadelo.</Text>
+                        </View>
+
                     </View>
-                    <TouchableOpacity>
-                        <Feather name="shopping-cart" size={24} color="white" />
-                    </TouchableOpacity>
                 </View>
             </ScrollView>
 
@@ -59,7 +41,7 @@ export default function TelaAcervo() {
                     </View>
                 </TouchableOpacity>
 
-                <TouchableOpacity>
+                <TouchableOpacity style={styles.botao} onPress={() => { router.push('/AcervoEscritor') }}>
                     <Feather name="shopping-cart" size={24} color="white" />
                 </TouchableOpacity>
 
@@ -75,6 +57,15 @@ export default function TelaAcervo() {
                     <MaterialCommunityIcons name="account-circle-outline" size={26} color="white" />
                 </TouchableOpacity>
             </View>
+
+            <View style={styles.voltarContainer}>
+                <View style={styles.linha} />
+                  <TouchableOpacity style={styles.voltarTexto} onPress={() => { router.push('/AcervoEscritor') }}>
+                <Text style={styles.voltarTexto}>VOLTAR</Text>
+                </TouchableOpacity>
+                <View style={styles.linha} />
+            </View>
+
         </View>
     );
 };
@@ -108,29 +99,7 @@ const styles = StyleSheet.create({
         fontFamily: 'cursive',
         fontSize: 22,
     },
-    filtros: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        marginBottom: 20,
-    },
-    filtroBtn: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        gap: 4,
-    },
-    filtroQuadrado: {
-        borderWidth: 1,
-        borderColor: '#62B5E6',
-        paddingHorizontal: 10,
-        paddingVertical: 4,
-        borderRadius: 4,
-    },
-    filtroTexto: {
-        color: '#62B5E6',
-        fontSize: 13,
-        fontWeight: 'bold',
-    },
+
     cardLivro: {
         flexDirection: 'row',
         backgroundColor: '#1E1E2E',
@@ -156,13 +125,9 @@ const styles = StyleSheet.create({
     desc: {
         color: '#E8E8E8',
         fontSize: 13,
+        marginTop: 15,
     },
-    preco: {
-        color: '#62B5E6',
-        fontWeight: 'bold',
-        fontSize: 14,
-        marginTop: 5,
-    },
+
     footer: {
         position: 'absolute',
         bottom: 0,
@@ -189,4 +154,24 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 20,
     },
+    voltarContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingBottom: 370,
+    },
+
+    linha: {
+        width: 20, // menor que antes
+        height: 1,
+        backgroundColor: '#D9D9D9',
+        marginHorizontal: 10,
+    },
+
+    voltarTexto: {
+        color: '#62B5E6',
+        fontWeight: 'bold',
+        fontSize: 14,
+    },
+
 });

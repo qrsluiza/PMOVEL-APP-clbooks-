@@ -51,7 +51,7 @@ const router = useRouter()
 
       </View>
 
-      <View style={styles.footer}>
+      <View style={styles.notificacao}>
         <Text style={styles.footerText2}>*SEM NOTIFICAÇÕES ANTERIORES</Text>
       </View>
 
@@ -109,7 +109,7 @@ gap: 20
     justifyContent: 'space-between',
   },
 
-  footer: {
+  notificacao: {
     marginTop: 30,
     alignItems: 'center',
   },

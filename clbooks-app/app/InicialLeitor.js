@@ -4,9 +4,6 @@ import { FontAwesome5, Feather, MaterialCommunityIcons, Entypo } from '@expo/vec
 import {useRouter} from 'expo-router'
 
 export default function App ()  {
-  const [login, setLogin] = useState();
-  const [senha, setSenha] = useState();
-
 const router = useRouter()
 
   return (
@@ -32,7 +29,7 @@ const router = useRouter()
           <FontAwesome5 name="users" size={24} color="white" />
         </TouchableOpacity>
 
-        <TouchableOpacity>
+        <TouchableOpacity style={styles.botao} onPress={() => {router.push('/NotificaLeitor')}}>
           <Feather name="bell" size={24} color="white" />
         </TouchableOpacity>
 
@@ -76,7 +73,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
   },
-
   footer: {
     position: 'absolute',
     bottom: 0,

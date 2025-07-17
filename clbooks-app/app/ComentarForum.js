@@ -29,7 +29,7 @@ const router = useRouter()
         <TouchableOpacity onPress={handleCancelar}>
           <Text style={styles.cancelar}>Cancelar</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.botaoPostar} onPress={handlePostar}>
+        <TouchableOpacity style={styles.botaoPostar} onPress={() => { router.push('/ForumLeitor') }}>
           <Text style={styles.textoPostar}>Postar</Text>
         </TouchableOpacity>
       </View>

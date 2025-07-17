@@ -23,9 +23,12 @@ export default  function App  ()  {
 
       <View style={styles.content}>
         <Text style={styles.label}>Tela forum leitor</Text>
+         <TouchableOpacity  style={styles.label2} onPress={() => {router.push('/ComentarForum')}}>
+        <Text style={styles.label2}>Comentar</Text>
+        </TouchableOpacity>
       </View>
 
-    
+        
       <View style={styles.footer}>
         <TouchableOpacity>
           <View style={styles.iconWrapper}>
