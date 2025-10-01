@@ -1,12 +1,26 @@
 import React, { useState } from 'react';
 import { Text, View, Image, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 import {useRouter} from 'expo-router'
+import { auth } from '../firebaseConfig';
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 export default function App  ()  {
-  const [login, setLogin] = useState();
-  const [senha, setSenha] = useState();
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
 
-const router = useRouter()
+const router = useRouter();
+
+const handleLogin = async () => {
+  try {
+    await signInWithEmailAndPassword(auth, email, senha);
+    router.replace('/InicialLeitor');
+  } catch (error) {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.error(errorCode);
+    console.error(errorMessage);
+  }    
+}
 
   return (
     <View style={styles.container}>
@@ -21,8 +35,8 @@ const router = useRouter()
           style={styles.input}
           placeholder="Email ou usuário"
           placeholderTextColor="#2B2A2A"
-          onChangeText={(texto) => setLogin(texto)}
-          defaultValue={login}
+          onChangeText={setEmail}
+          value={email}
         />
 
         <TextInput
@@ -37,7 +51,7 @@ const router = useRouter()
         <Text style={[styles.label2, { marginTop: 10 }]}>Esqueci a senha</Text>
         </TouchableOpacity>
         <View style={{ marginTop: 20 }}>
-          <TouchableOpacity style={styles.botao} onPress={() => {router.push('/InicialLeitor')}}>
+          <TouchableOpacity style={styles.botao} onPress={handleLogin}>
             <Text style={styles.botaoTexto}>ENTRAR</Text>
           </TouchableOpacity>
 
