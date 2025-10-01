@@ -24,16 +24,7 @@ const router = useRouter()
           defaultValue={login}
         />
 
-         <TextInput
-          style={styles.input}
-          placeholder="Inserir senha"
-          placeholderTextColor="#2B2A2A"
-          onChangeText={(texto) => setLogin(texto)}
-          defaultValue={login}
-        />
-
-
-
+  
         <View style={{ marginTop: 20 }}>
           <TouchableOpacity style={styles.botao} onPress={() => router.push('/EsqueciSenha')}>
             <Text style={styles.botaoTexto}>Confirmar</Text>

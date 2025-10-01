@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Text, View, Image, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
-import {useRouter} from 'expo-router'
+import { useRouter } from 'expo-router'
 
-export default function App  ()  {
+export default function App() {
   const [login, setLogin] = useState();
   const [senha, setSenha] = useState();
 
@@ -12,7 +12,7 @@ export default function App  ()  {
     <View style={styles.container}>
 
       <View style={styles.content}>
-       <Image source={require('../assets/clbooks.png')} style={styles.imagem} />
+        <Image source={require('../assets/clbooks.png')} style={styles.imagem} />
 
 
         <Text style={styles.label}>Link confirmado pelo usuario</Text>
@@ -36,20 +36,20 @@ export default function App  ()  {
 
 
         <View style={{ marginTop: 20 }}>
-          <TouchableOpacity style={styles.botao} onPress={() => {router.push('/') }}>
+          <TouchableOpacity style={styles.botao} onPress={() => { router.push('/') }}>
             <Text style={styles.botaoTexto}>Confirmar</Text>
           </TouchableOpacity>
         </View>
 
 
-            <View>
-            <TouchableOpacity onPress={() => router.push('/')}>
-          <Text style={styles.label2}>VOLTAR</Text>
-           </TouchableOpacity>
+        <View>
+          <TouchableOpacity onPress={() => router.push('/')}>
+            <Text style={styles.label2}>VOLTAR</Text>
+          </TouchableOpacity>
         </View>
       </View>
 
-      
+
 
       <View style={styles.footer}>
 
@@ -74,20 +74,21 @@ const styles = StyleSheet.create({
   },
 
   imagem: {
-  width: 350, 
-  height: 150, 
-  alignSelf: 'center', 
-  marginBottom: 20, 
-  resizeMode: 'contain', 
-},
+    width: 350,
+    height: 150,
+    alignSelf: 'center',
+    marginBottom: 20,
+    resizeMode: 'contain',
+  },
 
-label:{
-   color: '#E8E8E8',
-  fontSize: 12,
-  fontWeight: 'bold',
-  textAlign: 'center', 
+  label: {
+    color: '#E8E8E8',
+    fontSize: 12,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    paddingBottom: 12,
 
-},
+  },
 
   botao: {
     backgroundColor: '#6EB1DF',
@@ -103,7 +104,7 @@ label:{
   },
 
   input: {
-   borderWidth: 1,
+    borderWidth: 1,
     backgroundColor: '#D9D9D9',
     height: 40,
     borderRadius: 5,
@@ -119,11 +120,11 @@ label:{
     fontWeight: 'bold',
   },
 
-  label2:{
-   color: '#6EB1DF',
-  fontSize: 14,
-  fontWeight: 'bold',
-  textAlign: 'center', 
-  padding: 10
-},
+  label2: {
+    color: '#6EB1DF',
+    fontSize: 14,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    padding: 10
+  },
 });
